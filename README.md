@@ -1,16 +1,29 @@
-# React + Vite
+![The Last Stream Header](src/assets/header.jpeg)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# The Last Stream 🎥💀
 
-Currently, two official plugins are available:
+> **「このバグ（事件）の犯人は誰だ？」**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+豪華グランピング施設を舞台にした、モダンなマーダーミステリーサイト。
+物語を追い、キャラクターを調査し、インフルエンサーの死の真相を暴け。
 
-## React Compiler
+## 特徴 ✨
+- **没入型ストーリー**: サイバーパンク・ノワールなミステリー体験。
+- **リッチなビジュアル**: パララックス（視差効果）ヒーローセクション、グラスモーフィズムUI、高品質なキャラクター立ち絵。
+- **インタラクティブな年表**: 事件に至るまでの経緯を追える「ストーリーブック」機能。
+- **相関図**: 複雑に絡み合う動機を可視化。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 使用技術 🛠️
+- React
+- Vite
+- CSS Modules (カスタムグリッチ＆ネオンエフェクト)
 
-## Expanding the ESLint configuration
+## 始め方 🚀
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+## ライセンス 📄
+MIT
