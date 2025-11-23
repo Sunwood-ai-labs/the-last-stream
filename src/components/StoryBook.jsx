@@ -77,8 +77,12 @@ const StoryBook = ({ onClose }) => {
                             padding: '20px',
                             borderRadius: '10px',
                             border: `1px solid ${item.type === 'critical' ? '#ff0000' : (item.type === 'warning' ? '#ffaa00' : 'rgba(255,255,255,0.1)')}`,
-                            textAlign: index % 2 === 0 ? 'left' : 'right'
-                        }}>
+                            textAlign: index % 2 === 0 ? 'left' : 'right',
+                            transition: 'transform 0.3s',
+                        }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        >
                             <div style={{
                                 fontSize: '1.5rem',
                                 fontWeight: 'bold',
@@ -88,6 +92,32 @@ const StoryBook = ({ onClose }) => {
                             }}>
                                 {item.time}
                             </div>
+
+                            {/* Event Image */}
+                            <div style={{
+                                width: '100%',
+                                height: '150px',
+                                marginBottom: '15px',
+                                borderRadius: '8px',
+                                overflow: 'hidden',
+                                border: '1px solid rgba(255,255,255,0.2)'
+                            }}>
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        opacity: 0.9
+                                    }}
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = 'https://placehold.co/600x400/1a1a1a/ffffff?text=No+Image'; // Fallback
+                                    }}
+                                />
+                            </div>
+
                             <h3 style={{ margin: '0 0 10px', color: '#fff' }}>{item.title}</h3>
                             <p style={{ color: '#ccc', lineHeight: '1.6' }}>{item.description}</p>
                         </div>
@@ -98,7 +128,7 @@ const StoryBook = ({ onClose }) => {
                     <p style={{ fontSize: '1.2rem', color: '#666' }}>To be continued in the investigation...</p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
