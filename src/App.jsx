@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Layout from './components/Layout';
 import CharacterCard from './components/CharacterCard';
 import RelationshipMap from './components/RelationshipMap';
+import StoryBook from './components/StoryBook';
 import { storyData } from './data/story';
 import { charactersData, victimData } from './data/characters';
 import heroBg from './assets/hero_background.png';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
+  const [showStoryBook, setShowStoryBook] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -17,6 +19,8 @@ function App() {
 
   return (
     <Layout>
+      {showStoryBook && <StoryBook onClose={() => setShowStoryBook(false)} />}
+
       {/* Hero Section */}
       <section style={{
         height: '100vh',
@@ -52,22 +56,41 @@ function App() {
             <p style={{ fontSize: '1rem', maxWidth: '600px', margin: '0 auto 30px', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
               {storyData.intro}
             </p>
-            <button style={{
-              padding: '15px 40px',
-              fontSize: '1rem',
-              background: 'transparent',
-              color: 'var(--color-primary)',
-              border: '2px solid var(--color-primary)',
-              borderRadius: '0',
-              cursor: 'pointer',
-              fontFamily: 'var(--font-display)',
-              transition: 'all 0.3s'
-            }}
-              onMouseOver={(e) => { e.target.style.background = 'var(--color-primary)'; e.target.style.color = '#fff'; }}
-              onMouseOut={(e) => { e.target.style.background = 'transparent'; e.target.style.color = 'var(--color-primary)'; }}
-            >
-              ENTER SITE
-            </button>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+              <button style={{
+                padding: '15px 40px',
+                fontSize: '1rem',
+                background: 'transparent',
+                color: 'var(--color-primary)',
+                border: '2px solid var(--color-primary)',
+                borderRadius: '0',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-display)',
+                transition: 'all 0.3s'
+              }}
+                onMouseOver={(e) => { e.target.style.background = 'var(--color-primary)'; e.target.style.color = '#fff'; }}
+                onMouseOut={(e) => { e.target.style.background = 'transparent'; e.target.style.color = 'var(--color-primary)'; }}
+                onClick={() => document.getElementById('story').scrollIntoView({ behavior: 'smooth' })}
+              >
+                ENTER SITE
+              </button>
+              <button style={{
+                padding: '15px 40px',
+                fontSize: '1rem',
+                background: 'var(--color-secondary)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '0',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-display)',
+                transition: 'all 0.3s',
+                boxShadow: '0 0 15px var(--color-secondary)'
+              }}
+                onClick={() => setShowStoryBook(true)}
+              >
+                📖 READ STORYBOOK
+              </button>
+            </div>
           </div>
         </div>
       </section>
