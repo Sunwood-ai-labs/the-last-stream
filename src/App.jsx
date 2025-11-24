@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import CharacterCard from './components/CharacterCard';
 import RelationshipMap from './components/RelationshipMap';
 import StoryBook from './components/StoryBook';
+import Playbook from './components/Playbook';
 import { storyData } from './data/story';
 import { charactersData, victimData } from './data/characters';
 import heroBg from './assets/hero_background.png';
@@ -10,6 +11,7 @@ import heroBg from './assets/hero_background.png';
 function App() {
   const [scrollY, setScrollY] = useState(0);
   const [showStoryBook, setShowStoryBook] = useState(false);
+  const [showPlaybook, setShowPlaybook] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -20,6 +22,7 @@ function App() {
   return (
     <Layout>
       {showStoryBook && <StoryBook onClose={() => setShowStoryBook(false)} />}
+      {showPlaybook && <Playbook onClose={() => setShowPlaybook(false)} />}
 
       {/* Hero Section */}
       <section style={{
@@ -56,7 +59,7 @@ function App() {
             <p style={{ fontSize: '1rem', maxWidth: '600px', margin: '0 auto 30px', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
               {storyData.intro}
             </p>
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button style={{
                 padding: '15px 40px',
                 fontSize: '1rem',
@@ -89,6 +92,24 @@ function App() {
                 onClick={() => setShowStoryBook(true)}
               >
                 📖 READ STORYBOOK
+              </button>
+              <button style={{
+                padding: '15px 40px',
+                fontSize: '1rem',
+                background: 'rgba(255, 255, 255, 0.1)',
+                color: '#fff',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '0',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-display)',
+                transition: 'all 0.3s',
+                backdropFilter: 'blur(5px)'
+              }}
+                onMouseOver={(e) => { e.target.style.background = 'rgba(255, 255, 255, 0.2)'; }}
+                onMouseOut={(e) => { e.target.style.background = 'rgba(255, 255, 255, 0.1)'; }}
+                onClick={() => setShowPlaybook(true)}
+              >
+                📒 PLAYBOOK
               </button>
             </div>
           </div>
